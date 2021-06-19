@@ -7,8 +7,8 @@ echo ""
 INSTALL_DIR=$HOME/laptop_battery_notify
 CURRENT_DIR=$HOME/Battery-Notifier
 SCRIPT=laptop_battery_notify.sh
-BATT_DARK=$CURRENT_DIR/images/battery_dark.svg
-BATT_LIGHT=$CURRENT_DIR/images/battery_light.svg
+BATT_DARK=images/battery_dark.svg
+BATT_LIGHT=images/battery_light.svg
 BATT_ICON=battery.svg
 
 if [ ! -d $INSTALL_DIR ];
