@@ -1,6 +1,6 @@
 # Battery-Notifier
 
-A script to display a notification when battery is 
+A script to display notifications when battery is 
 - at or below 20% (discharging) and when at or above 85% (charging) for battery optimization.
 - fully charged or below 10% (critical level).
 
