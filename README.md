@@ -33,3 +33,7 @@ To uninstall:
 cd Battery-Notifier
 sh uninstall.sh
 ```
+
+## Acknowledgements
+
+- The included symbolic icons are [Material Design icons](https://github.com/google/material-design-icons) by Google.
