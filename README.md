@@ -5,6 +5,7 @@ A script to display a notification when battery is
 - fully charged or below 10% (critical level).
 
 for Linux (or GNU/Linux, if that's what you prefer) based systems.
+
 The script will run every 5 minutes in background.
 
 ## Preview
