@@ -1,6 +1,10 @@
 # Battery-Notifier
 
-A script to display a notification when your battery is at or below 20% (when discharging) and when at or above 85% (when charging) for Linux (or GNU/Linux, if that's what you prefer) based systems.
+A script to display a notification when battery is 
+- at or below 20% (discharging) and when at or above 85% (charging) for battery optimization.
+- fully charged or below 10% (critical level).
+
+for Linux (or GNU/Linux, if that's what you prefer) based systems.
 The script will run every 5 minutes in background.
 
 ## Preview
