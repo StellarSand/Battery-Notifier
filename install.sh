@@ -5,7 +5,6 @@ echo "Battery Notifier"
 echo ""
 
 INSTALL_DIR=$HOME/laptop_battery_notify
-CURRENT_DIR=$HOME/Battery-Notifier
 SCRIPT=laptop_battery_notify.sh
 BATT_DARK=images/battery_dark.svg
 BATT_LIGHT=images/battery_light.svg
@@ -16,7 +15,7 @@ then
 	mkdir $INSTALL_DIR
 	echo "Installing in" $INSTALL_DIR  "..."
 	echo ""
-	cp $CURRENT_DIR/$SCRIPT $INSTALL_DIR/$SCRIPT
+	cp $SCRIPT $INSTALL_DIR/$SCRIPT
 	echo "Fixing permissions ..."
 	echo ""
 	chmod +x $INSTALL_DIR/$SCRIPT
@@ -28,9 +27,9 @@ then
 
 	if [ $theme == '1' ];
 	then
-		cp $CURRENT_DIR/$BATT_DARK $INSTALL_DIR/$BATT_ICON
+		cp $BATT_DARK $INSTALL_DIR/$BATT_ICON
 	else
-		cp $CURRENT_DIR/$BATT_LIGHT $INSTALL_DIR/$BATT_ICON
+		cp $BATT_LIGHT $INSTALL_DIR/$BATT_ICON
 	fi
 	
 	echo ""
