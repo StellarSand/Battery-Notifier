@@ -4,7 +4,7 @@ A script to display notifications when battery is
 - at or below 20% (discharging) and when at or above 85% (charging) for battery optimization.
 - fully charged or below 10% (critical level).
 
-for Linux (or GNU/Linux, if that's what you prefer) based systems.
+for GNU/Linux based systems.
 
 The script will run every 5 minutes in background.
 
