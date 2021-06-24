@@ -8,6 +8,8 @@ For GNU/Linux based systems.
 
 The script will run every 5 minutes in background.
 
+Support for both dark and light themes.
+
 ## Preview
 
 ![widget-factory](/images/preview.png?raw=true)
