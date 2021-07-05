@@ -34,7 +34,7 @@ then
 	
 	echo ""
 	echo "Setting up cronjob ..."
-	(crontab -l ; echo "*/5 * * * * /bin/sh" $INSTALL_DIR/$SCRIPT) | crontab -
+	(crontab -l ; echo "*/3 * * * * /bin/sh" $INSTALL_DIR/$SCRIPT) | crontab -
 	echo ""
 	echo "Done"
 	echo ""
