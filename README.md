@@ -6,7 +6,7 @@ A script to display notifications when battery is
 
 For GNU/Linux based systems.
 
-The script will run every 5 minutes in background.
+The script will run every 3 minutes in background.
 
 Support for both dark and light themes.
 
