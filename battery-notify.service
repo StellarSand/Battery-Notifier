@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Copyright (c) 2023 the-weird-aquarian
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,32 +18,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-successFail() {
-	if [ $? -eq 0 ]
-	then
-		echo -e "Done.\n"
-	else
-		echo -e "Some error occurred performing the task.\n"
-		exit 1
-	fi
-}
+[Unit]
+Description=Battery Notify Service
 
-script="battery-notify"
-	
-echo "Installing ..."
-sudo cp $script.sh /usr/bin/$script
-successFail
+[Service]
+ExecStart=/bin/bash /usr/bin/battery-notify
+Restart=always # Restart service when it exits, crashes, or is otherwise stopped
+RestartSec=5 # Restart after 5 seconds of crashing, exiting etc
 
-echo -e "Fixing permissions ..."
-sudo chmod +x /usr/bin/$script
-successFail
-
-echo -e "Setting up service ..."
-sudo cp $script.service /etc/systemd/system/$script.service
-sudo systemctl enable --now $script.service
-successFail
-
-battery-notify -h
-
-exit 0
-
+[Install]
+WantedBy=multi-user.target

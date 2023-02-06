@@ -1,21 +1,58 @@
-#!bin/sh
+#!/usr/bin/env bash
 
-echo ""
-echo "Battery Notifier"
-echo ""
+# Copyright (c) 2023 the-weird-aquarian
 
-INSTALL_DIR=$HOME/laptop_battery_notify
-SCRIPT=laptop_battery_notify_test.sh
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 
-if [ -d $INSTALL_DIR ];
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+successFail() {
+	if [ $? -eq 0 ]
+	then
+		echo -e "Done.\n"
+	else
+		echo -e "Some error occurred performing the task.\n"
+		exit 1
+	fi
+}
+
+install_dir="/usr/bin"
+script="battery-notify"
+config_dir="$HOME/.config/battery-notify"
+
+if [ -f $install_dir/$script ]
 then
 	echo "Uninstalling ..."
-	rm -rf $INSTALL_DIR
-	echo ""
-	echo "Removing cronjob ..."
-	crontab -l | grep -v "* * * * * /bin/sh $INSTALL_DIR/$SCRIPT" | crontab
-	echo ""
-	echo "Done"
+	sudo rm $install_dir/$script
+	successFail
+fi
+
+if [ -f /etc/systemd/system/$script.service ]
+then
+	echo "Removing service ..."
+	sudo systemctl disable --now $script.service
+	successFail	
+fi
+
+if [ -d "$config_dir" ]
+then
+	echo "Removing config files ..."
+	rm -rf "$config_dir"
+	successFail
 fi
 	
 exit 0
