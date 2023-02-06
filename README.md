@@ -50,7 +50,7 @@ chmod +x install.sh
  -l,    --low               Set battery low percent (default = 20)
  -s,    --sound             Set custom notification sound
  -r,    --repeat            Repeat notification at set interval (in seconds)
-                            Default = 10 seconds, 0 = Notify only once
+                            Default = 60 seconds, 0 = Notify only once
 ```
 
 

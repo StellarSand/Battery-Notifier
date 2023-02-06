@@ -31,6 +31,7 @@ successFail() {
 }
 
 script="battery-notify"
+username=$(whoami)
 	
 echo "Installing ..."
 sudo cp $script.sh /usr/bin/$script
@@ -42,7 +43,12 @@ successFail
 
 echo -e "Setting up service ..."
 sudo cp $script.service /etc/systemd/system/$script.service
-sudo systemctl enable --now $script.service
+
+# Put username in systemd service file so its not run as root
+sudo sed -i "/User=/ s/$/$username/" /etc/systemd/system/$script.service
+
+sudo systemctl enable $script.service
+sudo systemctl start $script.service
 successFail
 
 battery-notify -h
