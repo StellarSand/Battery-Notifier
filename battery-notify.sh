@@ -99,7 +99,6 @@ EOF
 fi
 
 chkPackage "upower"
-chkPackage ""
 
 bat_path=$(upower -e | grep -m1 "battery")
 line_power_path=$(upower -e | grep "line_power")
